@@ -98,7 +98,7 @@ exports.testCmd = (rl,id) => {
 			const quiz = model.getByIndex(id);
 			rl.question(` ${colorize(quiz.question, 'red')}${colorize('?', 'red')} `, respuesta =>{
 				if(respuesta.toLowerCase().trim() === quiz.answer.toLowerCase()){
-					blog('Correcta', 'green');
+					log('Correcta', 'green');
 					rl.prompt();
 				}
 				else{

@@ -1,6 +1,7 @@
 const fs = require ("fs");
 const DB_FILENAME = "quizzes.json";
 
+
 const load = () => {
 	fs.readFile(DB_FILENAME, (err, data) => {
 		if (err) {
