@@ -115,10 +115,8 @@ exports.editCmd = (rl,id) => {
 		if (!quiz){
 			throw new Error(`No existe un quiz asoiado al id=${id}.`);
 		}
-		process.stdout.isTTY && setTimeout(() => {rl.write(quiz.question)}, 0);
 		return makeQuestion(rl, 'Introduzca la pregunta: ')
 		.then(q => {
-			process.stdout.isTTY && setTimeout(() => {rl.write(quiz.answer)}, 0);
 			return makeQuestion(rl, 'Introduzca la respuesta: ')
 			.then(a => {
 				quiz.question = q;
@@ -177,8 +175,8 @@ exports.testCmd = (rl,id) => {
 
 const playOne = (rl, toBeResolved, score) => {
 		if (toBeResolved.length === 0){
-			log ('  No hay más que preguntar.');
-			log ('  Fin del Examen. Aciertos:')
+			log ('No hay más que preguntar.');
+			log ('Fin del Examen. Aciertos:')
 			biglog(score, 'magenta');
 			rl.prompt();
 		}
@@ -191,12 +189,12 @@ const playOne = (rl, toBeResolved, score) => {
 				rl.question(` ${colorize(quiz.question, 'red')}${colorize('?', 'red')} `, respuesta =>{
 					if(respuesta.toLowerCase().trim() === quiz.answer.toLowerCase()){
 						score = score + 1;
-						log(`  CORRECTO - Llevas ${score} aciertos.`);
+						log(`CORRECTO - Llevas ${score} aciertos.`);
 				 		playOne(rl, toBeResolved, score);
 					}
 					else{
-						log("  INCORRECTO.");
-						log ('  Fin del Examen. Aciertos:')
+						log("INCORRECTO.");
+						log ('Fin del Examen. Aciertos:')
 						log(score, 'magenta');
 						rl.prompt();
 						}
