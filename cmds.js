@@ -197,7 +197,7 @@ const playOne = (rl, toBeResolved, score) => {
 					else{
 						log("  INCORRECTO.");
 						log ('  Fin del Examen. Aciertos:')
-						biglog(score, 'magenta');
+						log(score, 'magenta');
 						rl.prompt();
 						}
 				});
